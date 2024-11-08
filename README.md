@@ -1,4 +1,4 @@
-# SKT AI Fellowship - Chatbot Demo
+# SKT AI Fellowship - 멀티모달 감정 인식 프로젝트 Chatbot Demo
 This repository includes the code and demo of our chatbot system.
 
 ## Folder Architecture
