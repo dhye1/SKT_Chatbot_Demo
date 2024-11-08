@@ -1,4 +1,4 @@
-# Chatbot Demo
+# SKT AI Fellowship - Chatbot Demo
 This repository includes the code and demo of our chatbot system.
 
 ## Folder Architecture
