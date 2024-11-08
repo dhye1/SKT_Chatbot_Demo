@@ -1,4 +1,4 @@
-########## 2. 예측값 기반 mental healthcare 챗봇 페이지 ###########
+############################### 2. 예측값 기반 mental healthcare 챗봇 페이지 ###############################
 import os
 from dotenv import load_dotenv
 import streamlit as st
