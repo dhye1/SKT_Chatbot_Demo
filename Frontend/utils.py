@@ -18,26 +18,6 @@ class Utils():
             )
         return transcript
 
-    # def get_answer(self, messages: str) -> str:
-    #     system_message = [
-    #         {
-    #             "role": "system", 
-    #             "content": '''
-    #             You are a mental health counselor. 
-    #             Your task is to assess the emotions and mental state of patients and provide counseling accordingly. 
-    #             You are provided with the following information: the patient’s primary emotion {'sad'}, depression status {'depressed'}, and depressive symptoms {'sleepy'}. 
-    #             In the initial phase of counseling, focus on asking questions about their current state and offering empathy. 
-    #             In the middle phase, ask more specific questions about their symptoms to analyze the root cause. 
-    #             In the final phase, based on the patient’s depressive symptoms and your analysis, offer solutions to help them address their challenges.
-    #             '''
-    #         }
-    #     ]
-    #     messages = system_message + messages
-    #     response = self.client.chat.completions.create(
-    #         model="gpt-4o-mini",
-    #         messages=messages
-    #     )
-    #     return response.choices[0].message.content
 
 
 
@@ -95,44 +75,6 @@ class Utils():
 
 
 
-    # def get_answer(self, messages: list, predicted_emotion: str, depression_symptoms: dict) -> str:
-    #     # 우울 증상 데이터를 JSON 형식의 문자열로 변환
-    #     depression_symptoms_str = json.dumps(depression_symptoms, ensure_ascii=False, indent=2)
-        
-    #     # 시스템 메시지에서 감정과 우울 증상을 동적으로 반영
-    #     system_message = [
-    #         {
-    #             "role": "system", 
-    #             "content": f'''
-    #             '''
-    #         }
-    #     ]
-        
-    #     # 시스템 메시지를 사용자 메시지와 합침
-    #     combined_messages = system_message + messages
-        
-    #     # LLM 호출 (예시)
-    #     response = self.client.chat.completions.create(
-    #         model="gpt-4o-mini",
-    #         messages=combined_messages
-    #     )
-        
-    #     return response.choices[0].message.content
-
-
-
-
-
-    def tts(self, input_text: str) -> str:
-        response = self.client.audio.speech.create(
-            model="tts-1",
-            voice="nova",
-            input=input_text
-        )
-        webm_file_path = "temp_audio_play.mp3"
-        with open(webm_file_path, "wb") as f:
-            response.stream_to_file(webm_file_path)
-        return webm_file_path
 
     def autoplay_audio(self, file_path: str) -> None:
         with open(file_path, "rb") as f:
@@ -145,12 +87,3 @@ class Utils():
         """
         st.markdown(md, unsafe_allow_html=True)
 
-    def get_image(self, prompt: str) -> None:
-        response = self.client.images.generate(
-            model="dall-e-3",
-            prompt=prompt,
-            size="1024x1024",
-            quality="standard",
-            n=1,
-        )
-        st.image(response.data[0].url)
