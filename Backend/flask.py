@@ -3,11 +3,11 @@ import torch
 import torchaudio
 from transformers import RobertaTokenizer
 from safetensors.torch import load_file
-from prediction3 import TextAudioClassifier as EmotionClassifier
+from prediction import TextAudioClassifier as EmotionClassifier
 import depression_prediction
-from custom_roberta2 import RobertaCrossAttn
-from wavlm_plus2 import WavLMWrapper
-from whisper_model6 import WhisperWrapper
+from custom_roberta import RobertaCrossAttn
+from wavlm_plus import WavLMWrapper
+from whisper_model import WhisperWrapper
 from argparse import Namespace
 import os
 
