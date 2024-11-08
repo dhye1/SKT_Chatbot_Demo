@@ -18,23 +18,7 @@ from audiomentations import Compose, AddBackgroundNoise, PolarityInversion, AddG
 import warnings
 warnings.filterwarnings("ignore")
 
-'''
-NOTE: 
-- last update: 2024.10.10
 
-- daic data set load 추가 
-
-- iemocap 6way classification까지 구현 완료
-- iemocap 6way; dataset: iemocap6
-
-- iemocap6 기존에 txt transcript에서 데이터 로드하는 방식 -> csv에서 문장단위로 읽어오는 방식으로 변경. 
-- meld 4way, 6way 추가해둠. 
-
-TODO: 
-- Test session 체크 ! 
-- 4way class 없애기 
-- class weight dict로 만들어서 load 하는 방식 
-'''
 
 # define logging console
 import logging
