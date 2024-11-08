@@ -41,20 +41,6 @@ from utils import tokenize_texts
 from peft import get_peft_model, LoraConfig
 import loralib as lora 
 
-'''
-NOTE: [last update: 0927]
-
-inference모드에서는 lora사용하지 않도록 lora if문에 not args.inference_mode 추가 
-
-Whisper mask 추가 
-
-RobertaCrossAttn에 
-RobertaEncdoer / RobertaLayer / RobertaAttention 클래스 추가 
-
-TODO: 
-whisper Style PEFT 추가 할것 > 이부분은 custom_roverta_peft.py 파일에서 수정할것 
-
-'''
 
 class RobertaSelfAttention(nn.Module):
     def __init__(self, config, position_embedding_type=None):
@@ -538,90 +524,9 @@ class RobertaCrossAttn(nn.Module):
 
         # print(self.semantic_model)
 
-    # def forward(self, 
-    #             embeddings=None,  # text input 
-    #             s_token_type_ids=None,
-    #             s_position_ids=None,
-    #             s_head_mask=None,
-    #             s_labels=None,
-    #             a_inputs=None,
-    #             a_attention_mask=None,
-    #             a_token_type_ids=None,
-    #             a_position_ids=None,
-    #             a_head_mask=None,
-    #             a_labels=None,
-    #             a_mask_labels=None,
-    #             output_attentions=False,
-    #             output_hidden_states=True,
-    #             return_dict=None, 
-    #             acoustic_encode=None): # audio feature 
-        
-    #     # input_ids, attention_mask = embeddings
-    #     input_ids, attention_mask = tokenize_texts(embeddings, self.tokenizer, self.max_txt_len)
-    #     input_ids, attention_mask = input_ids.cuda(), attention_mask.cuda()
-
-    #     # print(f"attention_mask: {attention_mask}")
-
-    #     # [Cross modal attention]
-    #     if acoustic_encode is not None:
-    #         return_dict = return_dict if return_dict is not None \
-    #         else (self.acoustic_config.use_return_dict and self.semantic_config.use_return_dict)
-            
-    #         # Roberta 모델을 사용하여 semantic 정보 인코딩
-    #         semantic_outputs = self.semantic_model(
-    #             input_ids,
-    #             attention_mask=attention_mask,#s_attention_mask,
-    #             token_type_ids=s_token_type_ids,
-    #             position_ids=s_position_ids,
-    #             head_mask=s_head_mask,
-    #             #labels=s_labels,
-    #             encoder_hidden_states=acoustic_encode,  # Whisper 모델의 출력을 cross attention의 key-value로 사용
-    #             encoder_attention_mask=a_attention_mask, #a_attention_mask,  # Whisper 모델의 attention mask를 사용
-    #             output_attentions=output_attentions,
-    #             output_hidden_states=output_hidden_states, # True 
-    #             return_dict=return_dict,
-    #         )
-    #         semantic_encode = semantic_outputs.hidden_states[-1]
-    #         semantic_encode = torch.mean(semantic_encode, dim=1) 
-    #         # semantic_encode = semantic_encode[:, 0, :]  # CLS Token 
-    #         # print('semantic encode after cls', semantic_encode)
-
-            
-    #     # [Text input]
-    #     else: 
-    #         outputs = self.semantic_model(input_ids=input_ids, attention_mask=attention_mask)
-    #                                     #   output_hidden_states=output_hidden_states)
-            
-
-    #         if self.ws: 
-    #             # semantic_encode = outputs[0]
-    #             # semantic_encode = torch.mean(semantic_encode, dim=1)
-                
-    #             # shape: num_layers, batch_size, seq_len, hidden_dim 
-    #             all_hidden_out = torch.stack(outputs.hidden_states, dim=0)
-
-    #             # Use only CLS token [torch.Size([24, 32, 0, 1024]), embedding layer 제외]
-    #             if self.num_layers == self.semantic_model.config.num_hidden_layers:
-    #                 all_hidden_out = all_hidden_out[1:, :, 0, :] 
-    #             else:
-    #                 all_hidden_out = all_hidden_out[-self.num_layers:, :, 0, :] 
-
-    #             # num_layers, batch_size, hidden_dim
-    #             # print("all_hidden_out.shape", all_hidden_out.shape) # [24, 32, 1024]
-    #             _, *origin_shape = all_hidden_out.shape
-
-    #             stacked_feature = all_hidden_out.reshape(self.num_layers,  -1)
-    #             norm_weights = F.softmax(self.weights, dim=-1)
     
-    #             semantic_encode = (norm_weights.unsqueeze(-1) * stacked_feature).sum(dim=0) 
-    #             semantic_encode = semantic_encode.view(*origin_shape)
-    #             # print("Roberta ws: ", semantic_encode.shape)
-            
-    #         else: # [CLS] token is at index 0
-    #             # outputs = self.semantic_model(input_ids=input_ids, attention_mask=attention_mask)
-    #             semantic_encode = outputs.last_hidden_state[:, 0, :]  
-
-    #     return semantic_encode
+   
+    
     def forward(self, 
             embeddings=None,  # text input 
             s_token_type_ids=None,
