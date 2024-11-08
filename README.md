@@ -1,4 +1,4 @@
-# SKT AI Fellowship - project demo
+# SKT AI Fellowship - Project demo
 This repository includes the code and demo of our multimodal chatbot system.
 
 ## Folder Architecture
