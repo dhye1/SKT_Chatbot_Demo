@@ -1,2 +1,2 @@
-# legendary-eureka
-demo of Multimodal Emotion recognition &amp; Mental health care Chatbot
+# Demo of Chatbot system
+This repository includes the code and demo of chatbot system.
