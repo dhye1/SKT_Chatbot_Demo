@@ -1,5 +1,5 @@
 # SKT AI Fellowship - project demo
-B7 멀티모달 감정 인식 프로젝트 챗봇 데모
+B7 멀티모달 감정 인식 프로젝트 챗봇 데모 <br/>
 This repository includes the code and demo of our chatbot system.
 
 ## Folder Architecture
