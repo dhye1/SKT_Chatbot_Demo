@@ -93,10 +93,10 @@ def load_emotion_model():
         ).to(device)
 
         # 가중치 로드
-        audio_model_path = '/home/user/emo/demo/inference/1024_merge_crossattn_whisper_merged_fold_1.pt'
-        pred_model_path = '/home/user/emo/demo/inference/1024_merge_crossattn_pred_fold_1.pt'
-        speaker_state_dict_path = '/home/user/emo/demo/inference/1024_merge_crossattn_whisper_fold_1.pt'
-        text_model_path = '/home/user/emo/demo/inference/model.safetensors'
+        audio_model_path = './Backend/emotion_pt/1024_merge_crossattn_whisper_merged_fold_1.pt'
+        pred_model_path = './Backend/emotion_pt/1024_merge_crossattn_pred_fold_1.pt'
+        speaker_state_dict_path = './Backend/emotion_pt/1024_merge_crossattn_whisper_fold_1.pt'
+        text_model_path = './Backend/emotion_pt/inference/model.safetensors'
 
         pred_state_dict = torch.load(pred_model_path, map_location=device)
         speaker_state_dict = torch.load(speaker_state_dict_path, map_location=device)
@@ -142,13 +142,13 @@ def load_depression_model():
         ).to(device)
 
         # 가중치 로드
-        audio_model_path = '/home/user/emo/demo/inference/dep_pt/dep_1024_crossattn(False)_ffn_(kqv)_whisper_merged_fold_1.pt'
-        speaker_state_dict = '/home/user/emo/demo/inference/dep_pt/dep_1024_crossattn(False)_ffn_(kqv)_whisper_fold_1.pt'
-        text_model_path = '/home/user/emo/demo/inference/dep_pt/model.safetensors'
-        sym_model_path = '/home/user/emo/demo/inference/dep_pt/dep_1024_crossattn(False)_ffn_(kqv)_pred_fold_1.pt'
-        dpr_model_path = '/home/user/emo/demo/inference/dep_pt/dep_1024_crossattn(False)_ffn_(kqv)_classifier_fold_1.pt'
-        dpr_wd_path = '/home/user/emo/demo/inference/dep_pt/dep_1024_crossattn(False)_ffn_(kqv)_wd_fold_1.pt'
-        dpr_bd_path = '/home/user/emo/demo/inference/dep_pt/dep_1024_crossattn(False)_ffn_(kqv)_bd_fold_1.pt'
+        audio_model_path = './Backend/depression_pt/dep_1024_crossattn(False)_ffn_(kqv)_whisper_merged_fold_1.pt'
+        speaker_state_dict = './Backend/depression_pt/dep_1024_crossattn(False)_ffn_(kqv)_whisper_fold_1.pt'
+        text_model_path = './Backend/depression_pt/model.safetensors'
+        sym_model_path = './Backend/depression_pt/dep_1024_crossattn(False)_ffn_(kqv)_pred_fold_1.pt'
+        dpr_model_path = './Backend/depression_pt/dep_1024_crossattn(False)_ffn_(kqv)_classifier_fold_1.pt'
+        dpr_wd_path = './Backend/depression_pt/dep_1024_crossattn(False)_ffn_(kqv)_wd_fold_1.pt'
+        dpr_bd_path = './Backend/depression_pt/dep_1024_crossattn(False)_ffn_(kqv)_bd_fold_1.pt'
 
         audio_state_dict = torch.load(audio_model_path, map_location=device)
         speaker_state_dict = torch.load(speaker_state_dict, map_location=device)
