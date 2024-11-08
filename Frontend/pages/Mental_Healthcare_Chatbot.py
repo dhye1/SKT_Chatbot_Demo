@@ -1,3 +1,4 @@
+########## 2. 예측값 기반 mental healthcare 챗봇 페이지 ###########
 import os
 from dotenv import load_dotenv
 import streamlit as st
@@ -57,18 +58,6 @@ def on_input_submit():
         st.session_state.turn_count += 1
 
 
-        # # 사용자 입력 후, spinner를 출력하여 챗봇의 응답 대기 상태를 표시
-        # with st.spinner("Thinking... 🤔"):
-        #     final_response = None
-        #     if st.session_state.turn_count < 5:
-        #         final_response = utils.get_answer(
-        #             messages=st.session_state.messages,
-        #             predicted_emotion=st.session_state.get("predicted_emotion"),
-        #             depression_symptoms=st.session_state.get("depression_symptoms")
-        #         )
-        #     else:
-        #         final_response = "Thank you for sharing. Feel free to reach out if you need more support!"
-
 
         # 사용자 입력 후, spinner를 출력하여 챗봇의 응답 대기 상태를 표시
         with st.spinner("Thinking... 🤔"):
@@ -91,7 +80,7 @@ def on_input_submit():
             # with st.chat_message("assistant"):
             #     st.write(final_response)
 
-# 사용자 입력 필드 (변경 시 on_input_submit 호출)
+
 st.text_input("Enter your message...", key="user_input", on_change=on_input_submit)
 
 
@@ -99,87 +88,3 @@ st.text_input("Enter your message...", key="user_input", on_change=on_input_subm
 
 
 
-
-
-
-
-
-
-
-
-
-
-# import os
-# from dotenv import load_dotenv
-# import streamlit as st
-# from src.utils import Utils
-
-# # 환경 변수 로드
-# load_dotenv()
-# api_key = os.getenv("openai_api_key")
-# utils = Utils(api_key=api_key)
-
-# # 제목을 한 번만 출력
-# st.write("## 심리 상담 Chat🩺")
-
-# # 메시지 세션 초기화 함수
-# def reset_session():
-#     st.session_state.messages = []
-#     st.session_state.turn_count = 0  # 대화 횟수 초기화
-
-# # Reset Session 버튼 처리
-# if st.button("Reset Session"):
-#     reset_session()
-
-# # 초기 메시지 설정 (세션 상태에 messages가 없을 경우에만 초기화)
-# if "messages" not in st.session_state or not st.session_state.messages:
-#     st.session_state.messages = []
-#     st.session_state.turn_count = 0  # 대화 횟수 초기화
-    
-#     predicted_emotion = st.session_state.get("predicted_emotion", "sad")
-#     first_message = f"Currently, you are feeling **{predicted_emotion} emotion**. Could you please share more details about recent experiences related to this feeling?"
-    
-#     # 첫 번째 메시지를 세션에 추가하고 바로 출력
-#     st.session_state.messages.append({"role": "assistant", "content": first_message})
-#     with st.chat_message("assistant"):
-#         st.write(first_message)
-
-# # 모든 대화 기록을 순서대로 출력
-# for message in st.session_state.messages:
-#     with st.chat_message(message["role"]):
-#         st.write(message["content"])
-
-# # 사용자 입력 및 처리 함수
-# def on_input_submit():
-#     user_input = st.session_state.user_input
-#     if user_input:
-#         # 유저 입력을 메시지로 저장하고 즉시 화면에 출력
-#         st.session_state.messages.append({"role": "user", "content": user_input})
-#         with st.chat_message("user"):
-#             st.write(user_input)
-
-#         # 입력 필드 초기화
-#         st.session_state.user_input = ""
-
-#         # 채팅 반복 카운트 증가
-#         st.session_state.turn_count += 1
-
-#         # 챗봇의 응답 생성 및 출력
-#         if st.session_state.turn_count < 5:
-#             with st.chat_message("assistant"):
-#                 with st.spinner("Thinking... 🤔"):
-#                     final_response = utils.get_answer(
-#                         messages=st.session_state.messages,
-#                         predicted_emotion=st.session_state.get("predicted_emotion"),
-#                         depression_symptoms=st.session_state.get("depression_symptoms")
-#                     )
-#                 st.write(final_response)
-#                 st.session_state.messages.append({"role": "assistant", "content": final_response})
-#         else:
-#             end_message = "Thank you for sharing. Feel free to reach out if you need more support!"
-#             with st.chat_message("assistant"):
-#                 st.write(end_message)
-#                 st.session_state.messages.append({"role": "assistant", "content": end_message})
-
-# # 사용자 입력 필드 (변경 시 on_input_submit 호출)
-# st.text_input("Enter your message...", key="user_input", on_change=on_input_submit)
