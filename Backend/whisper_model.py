@@ -19,14 +19,7 @@ from torch.nn import functional as F
 from transformers.activations import ACT2FN
 from transformers import WavLMModel, WhisperModel, AutoFeatureExtractor
 
-'''
-NOTE: [last update: 0927]
 
-train파일에서 lora weight를 merge하기 위해 
-수정전 pretrained state dict에 해당하는 self.org_state_dict 추가 
-
-multimodal_cocat을 위한 whisper 
-'''
 
 @lru_cache(maxsize=None)
 def mel_filters(device, n_mels: int = 80):
