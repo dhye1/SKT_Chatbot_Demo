@@ -5,8 +5,8 @@ This repository includes the code and demo of our multimodal chatbot system.
 * **Backend**: Codes for
 * **Frontend**: Codes for
 
-All model checkpoints are separately stored in the [Dropbox](https://www.dropbox.com/scl/fo/y9ydmvv0bj846klkfdin0/h?rlkey=epyzclz2kbcf2g4iuz0tojlm9&dl=0)
-
+All model checkpoints are separately stored in the [Dropbox](https://www.dropbox.com/home/skt_ai%20fellowship_model_checkpoints?di=left_nav_browse)
+.
 
 ## Work Flow
 ### 1. Environment Configuration
