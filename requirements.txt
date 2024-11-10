@@ -1,1 +1,14 @@
-t
+flask
+torch==2.3.0
+torchaudio
+urllib3
+loralib
+accelerate
+
+
+streamlit
+audio_recorder_streamlit
+streamlit_float
+openai
+python-dotenv
+fastapi
