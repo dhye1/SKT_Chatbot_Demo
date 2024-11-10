@@ -21,10 +21,10 @@ utils = Utils(api_key=api_key)
 IMAGE_PATHS = {
     "anger": "img/anger.png",
     "excited": "img/excited.png",
-    "frustrated": "img/frustrated2.png",
+    "frustrated": "img/frustrated.png",
     "happy": "img/happy.png",
     "neutral": "img/neutral.png",
-    "sadness": "img/sadness2.png",
+    "sadness": "img/sadness.png",
 }
 
 # Flask 기반 멀티모달 모델이 돌아가는 서버의 주소와 포트 설정
