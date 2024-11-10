@@ -10,7 +10,6 @@ from src.utils import Utils
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import shap
 import transformers
 import streamlit.components.v1 as components
 
@@ -22,10 +21,10 @@ utils = Utils(api_key=api_key)
 IMAGE_PATHS = {
     "anger": "img/anger.png",
     "excited": "img/excited.png",
-    "frustrated": "img/frustrated.png",
+    "frustrated": "img/frustrated2.png",
     "happy": "img/happy.png",
     "neutral": "img/neutral.png",
-    "sadness": "img/sadness.png",
+    "sadness": "img/sadness2.png",
 }
 
 # Flask 기반 멀티모달 모델이 돌아가는 서버의 주소와 포트 설정
@@ -162,26 +161,26 @@ if audio_bytes:
                                 # st.write("### Overall predictions")
                                 image_path = IMAGE_PATHS.get(emotion_prediction)
                                 if image_path and os.path.exists(image_path):
-                                    st.image(image_path, caption=f"Emotion: {emotion_prediction.capitalize()}", use_column_width=True)
+                                    st.image(image_path, caption=f"Emotion: {emotion_prediction.capitalize()}", use_container_width=True)
                                 else:
                                     st.write(f"Image for {emotion_prediction} not found.")
 
-                                # 중복 제거 및 한 줄씩 띄워서 저장한 user_transcript 생성
-                                user_messages = [message["content"] for message in st.session_state.messages if message["role"] == "user"]
+                                # # 중복 제거 및 한 줄씩 띄워서 저장한 user_transcript 생성
+                                # user_messages = [message["content"] for message in st.session_state.messages if message["role"] == "user"]
 
-                                # 중복을 제거하고 줄바꿈으로 연결
-                                unique_user_messages = []
-                                for msg in user_messages:
-                                    if msg not in unique_user_messages:
-                                        unique_user_messages.append(msg)
+                                # # 중복을 제거하고 줄바꿈으로 연결
+                                # unique_user_messages = []
+                                # for msg in user_messages:
+                                #     if msg not in unique_user_messages:
+                                #         unique_user_messages.append(msg)
 
-                                user_transcript = "\n".join(unique_user_messages)
+                                # user_transcript = "\n".join(unique_user_messages)
 
-                                # SHAP 해석 생성 및 시각화 결과 표시 (HTML 임베드)
-                                explainer = shap.Explainer(pred)
-                                shap_values = explainer([user_transcript])
-                                shap_html = shap.plots.text(shap_values[0], display=False)
-                                components.html(shap_html, height=200)
+                                # # # SHAP 해석 생성 및 시각화 결과 표시 (HTML 임베드)
+                                # # explainer = shap.Explainer(pred)
+                                # # shap_values = explainer([user_transcript])
+                                # # shap_html = shap.plots.text(shap_values[0], display=False)
+                                # # components.html(shap_html, height=200)
 
 
                                 st.session_state["prediction_complete"] = True
@@ -200,8 +199,6 @@ if audio_bytes:
             st.error(f"오류 발생: {str(e)}")
 
 
-
-
 # 히트맵 시각화 함수
 def plot_symptom_heatmap(symptom_weights):
     symptoms = list(symptom_weights.keys())
@@ -212,12 +209,12 @@ def plot_symptom_heatmap(symptom_weights):
     sns.heatmap(
         data,
         annot=True,
-        cmap="PuBuGn",  # 노란색에서 빨간색으로의 그라데이션 컬러맵
+        cmap="PuBuGn",  
         cbar=True,
         linewidths=0.5,
         fmt=".4f",
         vmin=0,
-        vmax=1  # 최대 값을 1로 설정하여 강한 색 대비 적용
+        vmax=1  #
     )
     st.pyplot(plt)
 
@@ -236,9 +233,6 @@ if st.session_state.get("prediction_complete"):
     if {"role": "assistant", "content": final_message} not in st.session_state.messages:
         st.session_state.messages.append({"role": "assistant", "content": final_message})
 
-    # # 전체 대화 내용 (full_transcript) 출력
-    # st.write("### Full Transcript")
-    # st.write(st.session_state["full_transcript"])  # full_transcript 출력
 
     # 감정 예측 결과 출력
     st.write("### Prediction Results")
@@ -255,11 +249,3 @@ if st.session_state.get("prediction_complete"):
 
 
 footer_container.float("bottom: 0rem;")
-
-
-
-
-
-
-
-
