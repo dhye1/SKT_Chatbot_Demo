@@ -5,16 +5,20 @@ This repository includes the code and demo of our multimodal chatbot system.
 ### **Backend**
 Backend folder contains server-side code for the chatbot system, implemented using Flask. This folder includes files that enable multimodal emotion and depression prediction using audio and text inputs.
 1. `flask.py`
-- **Model Loading Functions**:
-  - `load_emotion_model()`: Initializes and loads weights for the emotion prediction model.
-  - `load_depression_model()`: Loads weights and settings for the depression prediction model.
-
-- **Prediction Functions**:
-  - `predict_emotion()`: Processes audio and text inputs to predict an emotional label.
-  - `predict_depression_symptoms()`: Processes audio and text inputs to predict a depression label and symptom weights.
-
-- **API Endpoint**:
-  - `/predict`: Accepts audio and text input, predicts emotion and depression states, and returns results in JSON format.
+  - **Model Loading Functions**:
+    - `load_emotion_model()`: Initializes and loads weights for the emotion prediction model.
+    - `load_depression_model()`: Loads weights and settings for the depression prediction model.
+  
+  - **Prediction Functions**:
+    - `predict_emotion()`: Processes audio and text inputs to predict an emotional label.
+    - `predict_depression_symptoms()`: Processes audio and text inputs to predict a depression label and symptom weights.
+  
+  - **API Endpoint**:
+    - `/predict`: Accepts audio and text input, predicts emotion and depression states, and returns results in JSON format.
+ 
+2. `wav2vec.py`
+  The wav2vec.py file contains code to create a customized wrapper around the Wav2Vec2 model, designed for emotion prediction tasks.
+3. 
 
 ### **Frontend**
 Frontend folder contains
