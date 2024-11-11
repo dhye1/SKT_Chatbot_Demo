@@ -30,18 +30,6 @@ IMAGE_PATHS = {
 # Flask 기반 멀티모달 모델이 돌아가는 서버의 주소와 포트 설정
 FLASK_API_URL = "http://localhost:5000/predict"
 
-# BERT 모델과 토크나이저 로드 (감정 예측용)
-tokenizer = transformers.AutoTokenizer.from_pretrained("nateraw/bert-base-uncased-emotion", use_fast=True)
-model = transformers.AutoModelForSequenceClassification.from_pretrained("nateraw/bert-base-uncased-emotion").cuda()
-
-# 예측을 위한 파이프라인 생성
-pred = transformers.pipeline(
-    "text-classification",
-    model=model,
-    tokenizer=tokenizer,
-    device=0,
-    return_all_scores=True,
-)
 
 # Reset session state for messages when entering this page
 def reset_session_state() -> None:
