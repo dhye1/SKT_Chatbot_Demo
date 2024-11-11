@@ -2,8 +2,8 @@
 This repository includes the code and demo of our multimodal chatbot system.
 
 ## Folder Architecture
-* **Backend**: Codes for
-* **Frontend**: Codes for
+* **Backend**: Backend folder contains server-side code for the chatbot system, implemented using Flask. This folder includes files that enable multimodal emotion and depression prediction using audio and text inputs.
+* **Frontend**: Frontend folder contains
 
 All model checkpoints are separately stored in the [Dropbox](https://www.dropbox.com/scl/fo/eij3dnkeccbyzuvc4qavm/AOs9R-huka-AIwXPsvd_0Ao?rlkey=tn5hqll9arnunbyz8odu3sz5y&st=59t5deol&dl=0).
 
