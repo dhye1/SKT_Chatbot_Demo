@@ -2,7 +2,8 @@
 This repository includes the code and demo of our multimodal chatbot system.
 
 ## Folder Architecture
-* **Backend**: Backend folder contains server-side code for the chatbot system, implemented using Flask. This folder includes files that enable multimodal emotion and depression prediction using audio and text inputs.
+### **Backend**
+Backend folder contains server-side code for the chatbot system, implemented using Flask. This folder includes files that enable multimodal emotion and depression prediction using audio and text inputs.
 1. flask.py
 - **Model Loading Functions**:
   - `load_emotion_model()`: Initializes and loads weights for the emotion prediction model.
