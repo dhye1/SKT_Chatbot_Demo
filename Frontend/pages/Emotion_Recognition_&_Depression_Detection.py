@@ -165,24 +165,6 @@ if audio_bytes:
                                 else:
                                     st.write(f"Image for {emotion_prediction} not found.")
 
-                                # # 중복 제거 및 한 줄씩 띄워서 저장한 user_transcript 생성
-                                # user_messages = [message["content"] for message in st.session_state.messages if message["role"] == "user"]
-
-                                # # 중복을 제거하고 줄바꿈으로 연결
-                                # unique_user_messages = []
-                                # for msg in user_messages:
-                                #     if msg not in unique_user_messages:
-                                #         unique_user_messages.append(msg)
-
-                                # user_transcript = "\n".join(unique_user_messages)
-
-                                # # # SHAP 해석 생성 및 시각화 결과 표시 (HTML 임베드)
-                                # # explainer = shap.Explainer(pred)
-                                # # shap_values = explainer([user_transcript])
-                                # # shap_html = shap.plots.text(shap_values[0], display=False)
-                                # # components.html(shap_html, height=200)
-
-
                                 st.session_state["prediction_complete"] = True
                             else:
                                 st.error(f"예측 실패 - 상태 코드: {response.status_code}, 내용: {response.text}")
