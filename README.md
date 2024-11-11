@@ -4,7 +4,7 @@ This repository includes the code and demo of our multimodal chatbot system.
 ## Folder Architecture
 ### **Backend**
 Backend folder contains server-side code for the chatbot system, implemented using Flask. This folder includes files that enable multimodal emotion and depression prediction using audio and text inputs.
-1. flask.py
+1. `flask.py`
 - **Model Loading Functions**:
   - `load_emotion_model()`: Initializes and loads weights for the emotion prediction model.
   - `load_depression_model()`: Loads weights and settings for the depression prediction model.
@@ -16,9 +16,13 @@ Backend folder contains server-side code for the chatbot system, implemented usi
 - **API Endpoint**:
   - `/predict`: Accepts audio and text input, predicts emotion and depression states, and returns results in JSON format.
 
-* **Frontend**: Frontend folder contains
+### **Frontend**
+Frontend folder contains
 
 All model checkpoints are separately stored in the [Dropbox](https://www.dropbox.com/scl/fo/eij3dnkeccbyzuvc4qavm/AOs9R-huka-AIwXPsvd_0Ao?rlkey=tn5hqll9arnunbyz8odu3sz5y&st=59t5deol&dl=0).
+
+
+<br/>
 
 ## Work Flow
 ### 1. Environment Configuration
@@ -28,13 +32,13 @@ pip install flask torch=2.3.0 torchaudio urllib3 loralib accelerate
 pip install streamlit==1.40.0 streamlit-float==0.3.5 streamlit-option-menu==0.3.2 audio_recorder_streamlit openai python-dotenv fastapi
 ```
 
-### 2. Run Back-end
+### 2. Run Backend
 ```
 cd Backend
 python flask.py
 ```
 
-### 3. Run Front-end
+### 3. Run Frontend
 After starting the backend server, open the Streamlit page.
 ```
 cd Frontend
