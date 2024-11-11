@@ -42,7 +42,7 @@ Backend folder contains server-side code for the chatbot system, implemented usi
 
 
 ### **Frontend**
-Frontend folder contains
+Frontend folder contains the Streamlit web application code for EmoChat.
 1. Home.py
    - main page for the Streamlit web application EmoChat.
      
