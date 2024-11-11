@@ -63,7 +63,7 @@ Frontend folder contains the Streamlit web application code for EmoChat.
 
 ## Work Flow
 ### 1. Environment Configuration
-Before installing, please create and activate a virtual conda environment with Python 3.8.19.
+Before installing, create and activate a virtual conda environment with Python 3.8.19.
 ```
 pip install flask torch=2.3.0 torchaudio urllib3 loralib accelerate
 pip install streamlit==1.40.0 streamlit-float==0.3.5 streamlit-option-menu==0.3.2 audio_recorder_streamlit openai python-dotenv fastapi
