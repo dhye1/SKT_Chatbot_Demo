@@ -1,4 +1,4 @@
-# SKT AI Fellowship
+## SKT AI Fellowship - Multimodal Project
 
 ## Project demo
 This repository includes the code and demo of our multimodal chatbot system.
